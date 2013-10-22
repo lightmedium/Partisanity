@@ -1,0 +1,18 @@
+defaults: &defaults
+  host: 127.0.0.1
+  port: 27017
+
+development:
+  <<: *defaults
+  database: congressional-activity
+
+test:
+  <<: *defaults
+  database: partisanity2_test
+
+# set these environment variables on your prod server
+production:
+  <<: *defaults
+  database: partisanity2
+  username: <%= ENV['MONGO_USERNAME'] %>
+  password: <%= ENV['MONGO_PASSWORD'] %>
